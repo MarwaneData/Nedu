@@ -1,0 +1,79 @@
+
+/* profile */
+.profile{
+    padding-top: 9%;
+    padding-bottom:50px ;
+    background: linear-gradient(359.39deg, #3E9BA7 -103.33%, #256B74 -59.23%, #00262B 76.19%) ;
+}
+
+.left .deux-button .upload{
+    background: #0a393f;
+}
+.left .deux-button .picture{
+    background: #a2b8bb;
+}
+.left .deux-button a{
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+}
+.left .changer{
+    background: #00515b;
+    border: none;
+    color: #00252A;
+}
+.left .photo-name .photo{
+    background-position: center;
+    background-size: cover;
+}
+
+.right input{
+    color: #E1E1E1;
+    background: #00515b;
+    border: none;
+}
+
+.right textarea{
+    background: #00515b;
+    border: none;
+    resize:none;
+    padding: 10px;
+    color: white;
+}
+.right-m{
+    margin: 80px 0 0 0;
+}
+label{
+    color:#C6C6C6;
+}
+
+
+.custom-file-input {
+  color: transparent;
+  background: transparent;
+  width: 95px;
+}
+.custom-file-input::-webkit-file-upload-button {
+  display: none;
+}
+.custom-file-input::before {
+    content: 'modifier';
+    color: white;
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #00515b, #00515b);
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    --webkit-user-select: none;
+    cursor: pointer;
+    font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active {
+  outline: 0;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+}

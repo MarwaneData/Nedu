@@ -1,0 +1,77 @@
+.navbar{
+    background-color: #00262b !important;
+}
+::-webkit-scrollbar{
+    width: 12px;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.404);
+    background-color: #0b6c80 ;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #d1e9ec;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #d1e9eca4;
+}
+.room{
+    padding: 200px 0;
+    background-color: #17464c;
+}
+button{
+    border: none;
+}
+button#btn-join, #btn-send-msg {
+    background: #00262b;
+    border-left: 1px solid #ffffff3b;
+}
+section.room.vh-100 {
+    background: #184d54;
+}
+button#btn-toggle-audio,#btn-toggle-video {
+    background: #d1e9ec;
+} 
+#video-container{
+    display: grid !important;
+    justify-content: space-between !important;
+    grid-template-columns: 340px 340px 340px ;
+}
+
+#chat{
+    background: #24646c;
+    height: 220px;
+    overflow: auto;
+    border-radius: 1rem 1rem 0 0;
+}
+video{
+    max-width: 303px;
+}
+#btn-send-msg {
+    /* border-radius: 0 0 1rem 0; */
+    width: 30%;
+}
+input.send-msg{
+    width: 70%;
+    /* border-radius: 0 0 0 1rem; */
+}
+#message-list li{
+    padding: 5px;
+    margin: 5px;
+    font-size: 20px;
+}
+@media only screen and (max-width: 1180px) {
+    #video-container{
+        grid-template-columns: 340px 340px !important;
+    }
+}
+@media only screen and (max-width: 915px) {
+    #video-container{
+        grid-template-columns: 350px 350px  !important;
+    }
+}
+@media only screen and (max-width: 700px) {
+    #video-container{
+        gap: 30px !important;
+        grid-template-columns: 380px   !important;
+    }
+}

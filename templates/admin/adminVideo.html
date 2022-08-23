@@ -1,0 +1,52 @@
+{% extends 'admin/adminBase.html' %}
+{% block base%}
+{% load static %}
+<div class="container  mt-5 pt-2">
+    <div class="nombre-ajouter d-flex justify-content-between">
+        <div class="nombreCours d-flex p-2 align-items-center ">
+            <img src="{% static 'images/domains.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{video|length}}</p>
+                <p class="light">Videos</p>
+            </div>
+        </div>
+        <input onclick="fonction1()" class="px-4 fw-bold" type="button" value="Ajouter">
+    </div>
+    <form method="POST" class="p-4 mt-4" id="form_ajouter"  style="border:1px solid rgba(0, 0, 0, 0.466); display: none; transition: all 3s;">
+        {% csrf_token %}
+        {{VideoForm}}
+        <input type="submit" class="mt-3" value="Ajouter">
+    </form>
+    <div class="search mt-5 pt-3">
+        <form action="#table-domaines">
+            <div class="d-flex">
+                <div class="">
+                    <input class="w-100 px-4 py-2 " name="search_name" type="text" placeholder="Rechercher">
+                </div>
+                <div class="">
+                    <input class="py-2" type="submit" value="->"></input>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="tout-cours w-100 mt-4">
+        <table id="table-domaines" class="table-cours w-100">
+            <tr class="head ">
+                <td class="p-4">Titres des videos</td>
+                <td >Cours</td>
+                <td></td>
+            </tr>
+            {% for v in video %}
+            <tr class=" p-4" style="border-bottom:1px solid black;">
+                <td class="d-flex align-items-center p-4">
+                    <div class="img" style="width:45px; height:45px; border-radius:50%; background: url(/les\ images/card2.jpg);"></div>
+                    <a href="{% url 'videoModifier' v.id %}"><p class="fw-bold mx-2">{{v.titre}}</p></a>
+                </td>
+                <td><p class="fw-bold" >{{v.cour}}</p></td>
+                <td><a href="{% url 'videoSupprimer' v.id %}"><button type="submit"class="bg-transparent fw-bold" style="border:none; color: red;">supprimer</button></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock base %}

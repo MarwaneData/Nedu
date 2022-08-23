@@ -1,0 +1,171 @@
+body {
+    overflow-x: hidden;
+    font-family: 'rubik', sans-serif;
+    font-size: 16px;
+  
+  }
+  ::-webkit-scrollbar{
+    width: 12px;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.404);
+    background-color: #0b6c80 ;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #d1e9ec;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #d1e9eca4;
+}
+  * a{
+    text-decoration: none !important;
+  }
+  p{
+    margin-bottom: 0 !important;
+  }
+  * form input{
+    color: #000 !important;
+  }
+  /* Toggle Styles */
+  
+  #viewport {
+    padding-left: 320px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  #content {
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+  }
+  
+  /* Sidebar Styles */
+  
+  #sidebar {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 320px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #0a393f;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  
+  #sidebar header a:hover img{
+    transition: all .5s;
+    transform:translateX(10px);
+  }
+  #sidebar li{
+       background-color: #00515b;
+       border-radius: .3rem;
+       color: #000 !important;
+  }
+  li a{
+      text-decoration: none !important;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 1px;
+  }
+  #content .navbar{
+      background:#00515b  !important;
+  }
+  
+  .container{
+      padding: 0 40px !important;
+  }
+  /* navbar  */
+  .navbar .right-navbar .img{
+    background-image: url(/les\ images/card2.jpg);
+    background-position: center;
+    background-size: cover;
+  }
+
+  
+/* profile */
+
+.left .deux-button .upload{
+  background: #0a393f;
+}
+.left .deux-button .picture{
+  background: #a2b8bb;
+}
+.left .deux-button a{
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+}
+.left .description{
+  background: #00515b;
+  color: white !important;
+  text-align: justify;
+}
+.left .changer{
+  background: #00515b;
+  border: none;
+  color: white;
+}
+.left .photo-name .photo{
+  background-image: url(/les\ images/card2.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.right div{
+  background: rgb(31, 29, 29);
+}
+.right p{
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1.2;
+  color: white;
+}
+/* admin cours  */
+.nombre-ajouter .nombreCours{
+  background: rgb(0, 0, 0);
+}
+.nombre-ajouter .nombreCours p{
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 1.2;
+  color: white;
+}
+
+.nombre-ajouter input{
+  background: rgb(221, 40, 40);
+  color: white;
+  border: none;
+}
+
+.search input{
+  border: none;
+  background: #00515b;
+}
+
+.tout-cours table{
+  overflow-y: scroll !important;
+}
+.tout-cours table .head{
+  background: black;
+  color: white;
+  border-radius: 10px 10px 0 0 ;
+}
+.tout-cours table tr{
+  background: #f2f2f2;
+}
+
+table tr td:nth-child(3){
+  text-align: end;
+  padding: 0 20px;
+}
+
+.right .confirmer{
+  background:#00515b;
+}

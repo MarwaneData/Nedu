@@ -1,0 +1,47 @@
+{% extends 'quiz/base.html' %}
+{% block base%}
+{% load static %}
+
+
+    <div class="container position-relative vh-100 ">
+        <div class="content p-3" style="border:1px solid rgba(108, 100, 100, 0.801);">
+            {% for q in questions_av %}
+            <div class="p-2 d-flex justify-content-center">
+                <h4>{{questions|length}} questions</h2>
+            </div>
+            <div class="p-2 d-flex justify-content-center">
+                <h5>{{q.question}}</h2>
+            </div>
+            <form method="GET" class="px-5 py-3">
+                <div class="quiz row" id="quiz">
+                    <label class="element-animation1 my-2 py-3 "><span class=""><i
+                                class=""></i></span> <input  type="radio" name="q_answer" value="{{q.option1}}"> {{q.option1}}
+                    </label>
+                    <label class="element-animation2 my-2 py-3  "><span class=""><i
+                                class=""></i></span> <input type="radio" name="q_answer" value="{{q.option2}}"> {{q.option2}}
+                    </label>
+                    <label class="element-animation3 my-2 py-3  "><span class=""><i
+                                class=""></i></span> <input type="radio" name="q_answer" value="{{q.option3}}"> {{q.option3}}
+                    </label>
+                    <label class="element-animation4 my-2 py-3 "><span class=""><i
+                                class=""></i></span> <input type="radio" name="q_answer" value="{{q.option4}}"> {{q.option4}}
+                    </label>
+                </div>
+                {% csrf_token %}
+            </form>
+            {% endfor %}
+            <div class="px-5">
+                <button class="px-2 py-1 fw-light" style="background:transparent; border:1px solid white !important; color: white !important;" id="save_ans" >Confirmer</button>
+            </div>
+            {% if questions_av.has_next %}
+            <div class="d-flex justify-content-end py-2">
+                <a href="?page={{ questions_av.next_page_number }}"><input type="button" class="bg-primary px-3 py-1 " style="border:none;" value="suivant"></a>
+            </div>
+            {% else %}
+            <div class="d-flex justify-content-end py-2">
+                <a href="{% url 'result' cours.id %}"><input type="button" class="bg-success px-3 py-1 " style="border:none;" value="resultat"></a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock base%}

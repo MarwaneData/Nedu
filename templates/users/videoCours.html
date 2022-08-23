@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+{% load static%}
+{% block base%}
+<section class="section1"  style="padding-bottom:200px;">
+    <div class="container h-100 ">
+
+        {% for v in videos %}
+        <div class="p-4">
+        <h3 class="p-2 text-danger">{{v.titre}}</h3>
+        <iframe src="{{v.url}}"  style="width: 90%; min-height: 500px;" frameborder="0"></iframe>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock base %}

@@ -1,0 +1,35 @@
+.inscription .container{
+    transform: scale(.8);
+}
+.inscription .contenu{
+    background-image: url(/static/images/les\ images/inscrire.jpg);
+    background-attachment: local;
+    transform: translateY(50px);
+}
+
+.inscription .inscForum .butoon{
+    padding: 8px;
+    background: #00262b ;
+    border: 1px solid rgba(245, 245, 245, 0.089);
+
+}
+.inscription .inscForum input{
+    width: 300px;
+    max-width: 350px;
+    padding: 4px 10px;
+    font-weight: 100;
+    color: rgba(255, 251, 251, 0.801);
+    border: 1px solid rgba(255, 251, 251, 0.384);
+    background: transparent;
+}
+.inscription .inscrSocial div{
+    background-color: white;
+}
+.inscription .inscrSocial img{
+    max-width: 30px;
+    max-height: 30px;
+}
+.inscription .inscrSocial p{
+    color: #00262b;
+    margin: 0;
+}

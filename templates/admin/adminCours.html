@@ -1,0 +1,58 @@
+{% extends 'admin/adminBase.html' %}
+{% block base%}
+{% load static %}
+<div class="container  mt-5 pt-2">
+    <div class="nombre-ajouter d-flex justify-content-between">
+        <div class="nombreCours d-flex p-2 align-items-center ">
+            <img src="{% static 'images/courses.png' %}" style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{cours|length}}</p>
+                <p class="light">Cours</p>
+            </div>
+        </div>
+        <input class="px-4 fw-bold" onclick="fonction1()" type="button" value="Ajouter" >
+    </div>
+    <form enctype="multipart/form-data" id="form_ajouter" method="post" class="p-4 mt-4" style="border:1px solid rgba(0, 0, 0, 0.466) ; display: none;">
+        {% csrf_token %}
+        {{coursForm.as_p }}
+        <input type="submit" class="mt-3" name="ajouterCours" value="Ajouter">
+    </form>
+    <div class="search mt-5 pt-3" >
+        <form action="#table-cours" method="GET">
+            <div class="d-flex">
+                <div class="">
+                    <input class="w-100 px-4 py-2 " type="text" name="search_name" id="cours_name" placeholder="Recherche">
+                </div>
+                <div class="">
+                    <input class="py-2" type="submit" value="->"></input>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="tout-cours w-100 mt-4">
+        <table id="table-cours" class="table-cours w-100">
+            <tr class="head " style="border-bottom:1px solid black;">
+                <td  class="p-4">Noms des cours</td>
+                <td>Domains</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for c in cours %}
+            <tr class="p-4" style="border-bottom:1px solid black;">
+                <td class="d-flex align-items-center p-4">
+                    {% if c.photo_cours %}
+                    <div class="img" style="width:45px; height:45px; border-radius:50%; background-image: url({{c.photo_cours.url}}); background-position: center; background-size: cover;"></div>
+                    {% else %}
+                    <div class="img" style="width:45px; height:45px; border-radius:50%; background-image: url(/static/images/Chat.png); background-position: center; background-size: cover;"></div>
+                    {% endif %}
+                    <a href="{% url 'coursModifier' c.id %}"><p class="fw-bold mx-2">{{c.titre}}</p></a>
+                </td>
+                <td><p class="fw-bold">{{c.domaine}}</p></td>
+                <td><p class="fw-bold"><a href=" {% url 'ajouterChapitre' c.id %} ">Ajouter chapitre</a></p></td>
+                <td><a href="{% url 'coursSupprimer' c.id %}" class="bg-transparent fw-bold" style="border:none; color: red;">supprimer</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock base%}

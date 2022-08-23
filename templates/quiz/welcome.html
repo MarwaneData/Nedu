@@ -1,0 +1,18 @@
+{% extends 'quiz/base.html' %}
+{% block base%}
+{% load static %}
+
+
+    <div class="container position-relative vh-100 ">
+        <div class="content h-100 d-flex justify-content-center align-items-center">
+         <h2> 
+            <a style="--clr:#11998e" id="welcome" href="{% url 'quiz' cours.id %}">
+                <span>Commencez<i></i></span>
+            </a>
+         </h2>
+            
+        </div>
+    </div>
+
+
+{% endblock %}

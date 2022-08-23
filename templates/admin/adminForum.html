@@ -1,0 +1,61 @@
+{% extends 'admin/adminBase.html' %}
+{% block base%}
+{% load static %}
+<div class="container  mt-5 pt-2">
+    <div class="nombre-ajouter d-flex justify-content-between">
+        <div class="nombreCours d-flex p-2 align-items-center ">
+            <img src="{% static 'images/usersIcon.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{postes|length}}</p>
+                <p class="light">Postes</p>
+            </div>
+        </div>
+        <form method="GET">
+            <button type="submit" name="room" style="border:0; background:transparent">
+               {% if stream.etat %}
+                <div class="p-2" style="background:#950e0e;">
+                    <p style="color:white">Fermer Stream</p>
+                </div>
+               {% else %}
+                <div class="p-2" style="background:rgb(10 57 63)">
+                   <p style="color:white">Ouvrir Stream</p>
+                </div>
+               {% endif %}
+            </button>
+        </form>
+    </div>
+    <div class="search mt-5 pt-3">
+        <form action="#table-etudiant">
+            <div class="d-flex">
+                <div class="">
+                    <input class="w-100 px-4 py-2 " name="search_name" type="text" placeholder="Recherche">
+                </div>
+                <div class="">
+                    <input class="py-2" type="submit" value=""></input>
+                    <img src=" {% static 'images/Search.png' %}  " width="20px" alt="" srcset="">
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="tout-cours w-100 mt-4">
+        <table id="table-etudiant" class="table-cours w-100">
+            <tr class="head ">
+                <td class="p-4">Noms </td>
+                <td >Commentaire</td>
+                <td></td>
+            </tr>
+            {% for p in postes %}
+            <tr class=" p-4" style="border-bottom:1px solid black;">
+                <td class="d-flex align-items-center p-4">
+                    <div class="img" style="width:45px; height:45px; border-radius:50%; background-image: url({{p.writer.profile.picture.url}}); background-position: center; background-size: cover;"></div>
+                    <p class="fw-bold mx-2 ">{{p.writer}}</p> <br>
+                </td>
+                <td><p class="fw-bold" style="max-width:100px;" >{{p.commentaire}}</p></td>
+                <td><a href="{% url 'postSupprimer' p.id %}"><button type="submit"class="bg-transparent fw-bold" style="border:none; color: red;">supprimer</button></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock base%}

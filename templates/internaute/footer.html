@@ -1,0 +1,29 @@
+<footer class="p-5 ">
+    <div class="container d-flex justify-content-between p-5">
+        <div class="aPropos w-50">
+            <h3>A propos</h3>
+            <p class="fw-light">Nous sommes une organisation à but non lucratif avec
+                pour mission de fournir  un contenu éducatif de qualité,
+                gratuit, accessible à tous et partout. Nedu propose
+                des cours, des exercices d'entraînement et une plateforme
+                d'apprentissage qui permettent aux etudiant d'apprendre
+                à leur rythme.</p>
+        </div>
+        <div class="menu">
+            <h3>Menu</h3>
+            <ul class="fw-light p-0">
+                <li class="my-2"><a href="{% url 'index'%}">Accueil</a> </li>
+                <li class="my-2"><a href="{% url 'about'%}">A propos</a> </li>
+                <li class="my-2"><a href="{% url 'cours'%}">Cours</a></li>
+                <li class="my-2"><a href=" {% url 'signup' %} ">Inscription</a></li>
+            </ul>
+        </div>
+        <div class="domains">
+            <h3>domaines</h3>
+            <ul class="fw-light p-0">
+                <li class="my-2">English</li>
+                <li class="my-2">Mathematique</li>
+                <li class="my-2">Informatique</li>
+            </ul>
+        </div>
+    </div>

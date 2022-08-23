@@ -1,0 +1,67 @@
+{% extends 'internaute/base.html' %}
+
+{% block base%}
+
+  <section class="section0 vh-100 bg-fixed bg-details">
+    <div class=" h-100 container  d-flex align-items-center justify-content-center">
+        <div class="contenu d-flex flex-column align-items-center">
+            <h1 class="big-title py-4 px-5 text-center">
+                L'avenir de l'apprentissage avec Nedum.
+            </h1>
+            <p class="pt-2 pb-4 text-center">
+                Nearest education est une organisation à but non lucratif ayant pour mission de fournir un enseignement gratuit
+et de qualité, pour tout le monde et Fournit toutes les conditions d'apprentissage rapidement et facilement.
+            </p>
+            <a href=" {% url 'signup' %} " id="button2" class="px-4 py-2">S'inscrire</a>
+        </div>
+    </div>
+</section>
+<section class="section1 p-5">
+    <div class="container h-100">
+        <div class="Bigtitle d-flex justify-content-center p-5  ">
+            <h2>Qu'est-ce qu'on vous offre</h2>
+        </div>
+        <div class="cards d-flex justify-content-center pb-4">
+            <div class="card bg-details d-flex flex-column align-items-center p-4 "  style="background-image: url(/static/images/cours-apropos.jpg);">
+                <div class="cardTitle p-3">
+                    <h4>Cours</h4>
+                </div>
+                <div class="cardText fw-light">
+                    <p class="p-2">vous pouvez comprendre les cours
+                        de différentes manières, télécharger
+                        en pdf ou lire à l'intérieur du site.</p>
+                </div>
+                <a id="button2" class="px-4 py-1 fw-light" href=" {% url 'login' %} ">Etudier</a>
+            </div>
+            <div class="card bg-details d-flex flex-column align-items-center p-4 "  style="background-image: url(/static/images/discuss-apropos.jpg);">
+                <div class="cardTitle p-3">
+                    <h4>Discussion</h4>
+                </div>
+                <div class="cardText fw-light">
+                    <p class="p-2">parlez et discutez avec vos amis en
+                        envoyant des messages ou discutez
+                        de vos idées dans le forum.</p>
+                </div>
+                <a id="button2" class="px-4 py-1 fw-light" href=" {% url 'login' %} ">discuter</a>
+            </div>
+            <div class="card bg-details d-flex flex-column align-items-center p-4 "  style="background-image: url(/static/images/stream-apropos.jpg);">
+                <div class="cardTitle p-3">
+                    <h4>Stream</h4>
+                </div>
+                <div class="cardText fw-light ">
+                    <p class="p-2">pour chaque cours, il y a un stream
+                        pour parler en ligne, directement face
+                        à face avec les étudiants sur le cours.</p>
+                </div>
+                <a id="button1" class="px-4 py-1 " href=" {% url 'login' %} ">Rejoindre</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section2 bg-details p-5 ">
+    <div class="container p-5  h-100 d-flex flex-column align-items-center justify-content-center">
+        <h1 class="p-4">Contactez-nous pour plus d'informations</h1>
+        <a href=" {% url 'login' %} " id="button1" class="py-2 px-5">Contacter</a>
+    </div>
+</section>
+{% endblock base%}

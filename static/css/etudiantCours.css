@@ -1,0 +1,113 @@
+header {
+    background: linear-gradient(359.39deg, #3E9BA7 -103.33%, #256B74 -59.23%, #00262B 76.19%) ;
+}
+.section1{
+    padding-top: 130px;
+    background: #f0ececd8;
+}
+.section1 .contenu{
+    padding-left: 250px;
+}
+.section1 .left{
+    z-index: 1000;
+    left: 9%;
+    width: 250px !important;
+    position: fixed;
+    overflow-y: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.section1 .right{
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+
+}
+.titreParagraph {
+    font-size: 20px;
+    color: #727272;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.titreChapitre {
+    margin: 0 0 40px 0;
+    color: #dd2828;
+}
+p {
+    color: black;
+    margin-bottom:0 !important;
+}
+.like p{
+    margin-left:10px;
+}
+.imageParagraph{
+    margin: 0 0 40px 0;
+    max-width: 100%;
+}
+.newSection{
+    padding: 20px 0 ;
+}
+.section1 .axes{
+    color: white;
+    height: max-content;
+}
+.section1 ul{
+    background: #00262B;
+    height: max-content;
+    padding: 15px 80px 15px 20px !important;
+}
+.section1 ul li{
+    padding: 6px;
+}
+.section1 .right .head a{
+    background: rgb(221, 40, 40);
+}
+.section1 .right .titre h3{
+    background: #256b749d;
+}
+.section1 .right .cours{
+    padding: 50px 20px;
+    width: 100%;
+    background: white;
+}
+
+.right .forms{
+    background: rgba(0, 0, 0, 0.075);
+    
+}
+.right .form{
+    background: rgb(7 51 57);
+    margin: 20px;
+    padding: 20px !important;
+}
+.right .form p{
+    color: white;
+    margin: 0 0 0 69px;
+}
+.right textarea{
+    border: 0;
+    background: rgba(0, 0, 0, 0.075);
+    padding: 10px;
+    color: black;
+}
+.right form .envoyer{
+    background: rgb(221, 40, 40);
+    color: black;
+}
+.titre h3{
+    margin: 0;
+}
+@media only screen and (max-width: 1340px) {
+    .section1 .left{
+        left: 5%;
+    }
+}
+@media only screen and (max-width: 1005px) {
+    .section1 .left{
+        left: 1%;
+        width: 212px;
+    }
+}
+

@@ -1,0 +1,99 @@
+.section0{
+   height: 90vh !important;
+    background-image:  url(/static/images/les\ images/apropos.jpg);
+}
+.section0 .contenu h1{
+    max-width: 700px;
+}
+.section0 .contenu p{
+    text-align: justify !important;
+    max-width: 900px;
+}
+.section1 .Bigtitle h2{
+    color: #107d8b ;
+}
+.card{
+    width: 28% !important;
+    margin: 20px;
+    background-attachment: local;
+}
+.card:nth-child(1){
+    background-image: linear-gradient( to right bottom, #00262baa, #000000ed ), url(/static/images/les\ images/cours.jpg);
+}
+.card:nth-child(2){
+    background-image: linear-gradient( to right bottom, #00262baa, #000000ed ), url(/static/images/les\ images/Discussion.jpg);
+}
+.card:nth-child(3){
+    background-image: linear-gradient( to right bottom, #00262baa, #000000ed ), url(/static/images/les\ images/Stream.jpg);
+}
+.section2{
+    background-image: linear-gradient( to right bottom, #00262baa, #000000ed ), url(/static/images/les\ images/aproposContact.jpg);
+    height: 50vh;
+}
+/* media query */
+@media only screen and (max-width: 992px) {
+    .section1 .cards{
+        display: grid !important;
+        justify-content: center !important;
+        grid-template-columns: 360px 360px  ;
+    }
+    .section1 .card{
+        min-width: 300px;
+    }
+    .section2 h1{
+        font-size: 25px;
+    }
+    .section2 a{
+        padding: 8px 27px !important;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .section1 .card{
+        width: 370px;
+    }
+    .section1 .cards{
+        grid-template-columns: 400px ;
+        /* gap: 60px; */
+    }
+    .section1 .card{
+        margin: 18px !important;
+        min-width: 100% !important;
+    }
+    .section2 h1{
+        transform: scale(1.1);
+        font-size: 14px;
+    }
+    .section2 a{
+        padding: 4px 23px!important;
+    }
+
+}
+@media only screen and (max-width: 535px) {
+    .section2 h1{
+        padding:10px 0 !important;
+        font-size: 8px ;
+        transform: scale(1.4);
+    }
+    .section2 a{
+        transform: scale(.8);
+        padding: 2px 21px!important;
+    }
+}
+@media only screen and (max-width: 440px) {
+    .section1 .card{
+        width: 100%;
+    }
+    .section1 .cards{
+        grid-template-columns: 100%   ;
+    }
+    .section2 .container{
+        align-items: start !important;
+    }
+    .section2 h1{
+        padding-left: 0 !important;
+    }
+    .section2 a{
+        transform: scale(.7);
+        margin-left: -50px;
+    }
+}

@@ -1,0 +1,50 @@
+{% extends 'users/base.html' %}
+{% load static%}
+{% block base%}
+{% if stream.etat %}
+<section class="room">
+    <div class="container">
+        <h3 id="label-username" class="fw-bold px-2">{{user.username}}</h3>
+        <div id="joining" class="joining">
+            <input class="py-2 px-1" type="text" id="username"><button class="py-2 px-1" id="btn-join">Join ROOM</button>
+        </div>
+        <div class="main-grid-container d-flex flex-column justify-content-between">
+            <div  id="video-container">
+                <div>
+                    <div class="forVedio"><video id="local-video" autoplay playsinline></video></div>
+                    <button class="text-danger p-1 "  id="btn-toggle-audio">Audio Mute</button>
+                    <button class="text-danger p-1 " id="btn-toggle-video">Video off</button>
+                </div>
+                
+            </div>
+    
+            <div class="forum-chat">
+                <h3 class="px-2 mt-5 fw-bold">Chat</h3>
+            <div class=" px-2 " id="chat">
+                <div id="messages">
+                    <ul id="message-list"></ul>
+                </div>
+            </div>
+            <div >
+                <input class="send-msg py-2 px-1" type="text" id="msg"><button class="py-2 px-1" id="btn-send-msg">Send Message</button>
+            </div>
+            </div>
+        </div>
+    
+    </div>
+</section>
+<script src="{% static 'js/main.js' %}"></script>
+{% else %}
+<section class=" room">
+    <div class="pb-5 container">
+        <h1 class="mb-5">Nedum team:</h1>
+        <h4>Bonjour notre étudiant {{user.profile.nom}} {{user.profile.prenom}} </h4>
+        <p style="color: black !important ;" >notre administrateur a fermé la reunion pour l'instant, vous pouvez leur envoyer un message (ce message contient le mot Stream ou quelque chose comme ça) et ils ouvriront la reunion</p>
+        <div class="py-4" >
+            <a  href=" {% url 'profile' %} ">Contacter</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock base %}

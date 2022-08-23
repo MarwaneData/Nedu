@@ -1,0 +1,99 @@
+{% extends 'users/base.html' %}
+{% load static%}
+{% block base%}
+<section class="section1 pb-5">
+    <div class="container h-100">
+        <div class="contenu d-flex">
+            <div class="left ">
+                <div class="title">
+                    <h2 class="text-dark"> {{cour.titre}} </h2>
+                </div>
+                <div class="axes">
+                    <ul class="px-2 py-3">
+                        <li><a href="#" class="nav-link">  </a></li>
+                        {% for chapitre in cour.chapitres.all  %}
+                        <li><a href="#{{chapitre.titre}}" class="nav-link">{{chapitre.titre}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="right w-100 mx-3 mt-5">
+                <div class="head d-flex justify-content-between align-items-center">
+                    <div class="titre">
+                        
+                    </div>
+                    <div class="deuxButton">
+                        <a href="{% url 'welcome' cour.id %}" class="quiz text-dark p-2 fw-bold">Quiz</a>
+                        <a href=" {% url 'pdfpage' cour.id %} " class="pdf text-dark p-2 fw-bold">Lisez en PDF</a>
+                        <a href=" {% url 'videoCours' cour.id %} " class="pdf text-dark p-2 fw-bold">Playlist</a>
+                    </div>
+                </div>
+                <div class="cours mt-3">
+                    {% for chapitre in cour.chapitres.all  %}
+                      <section class="newSection" id="{{chapitre.titre}}">
+                        <h2 class="titreChapitre">{{chapitre.titre}}</h2>
+                        {% for p in chapitre.paragraphes.all %}
+                        {% if p.titre_paragraphe %}
+                          <h4 class="titreParagraph"> {{p.titre_paragraphe}} </h4>
+                        {% endif %}
+                        <div>
+                            <p>{{p.contenu}}</p>
+                        </div>
+                         {% if p.have_image %}
+                         <img class="imageParagraph" src=" {{p.image.url}} " alt="" srcset="">
+                         {% endif %}
+                    {% endfor %}
+                    </section>
+                    {% endfor %}
+                </div>
+                <form  method="POST">
+                    {% csrf_token %}
+                    <div id="like" class="like d-flex align-items-center justify-content-end text-end mt-2">
+                        {% if user in cour.liked.all %}
+                        <div><p style="color: #0000ff;     margin: 9px 3px 0 0;" class="counter"> {{cour.liked.all.count}} </p></div>
+                        <div>
+                            <button name="like" style="border:none;" type="submit"><img  width="20px" src="{% static 'images/like2.png' %}"></button>
+                        </div>
+                        {% else %}
+                        <div><p style="    margin: 9px 3px 0 0;" class="counter"> {{cour.liked.all.count}} </p></div>
+                        <div>
+                            <button name="like" style="border:none;" type="submit"><img  width="20px" src="{% static 'images/like1.png' %}"></button>
+                        </div>
+                        {% endif %}
+                    </div>
+                </form>
+                <!-- les commentaires  -->
+                <div class="forms py-3 w-100 d-flex flex-column mt-5">
+                    {% for post in posts  %}
+                    <div class="form py-2 px-4 ">
+                        <div class="photo-name d-flex ">
+                            <img src="{{post.writer.profile.picture.url}}" class="photo bg-white" style="width:50px; height:50px; border-radius: 50%;"> 
+                            <div class="name mx-3">
+                                <h5 class="mb-0">{{post.writer}}</h5>
+                                {% if user.is_staff %}
+                                <h6 class="">admin</h6>
+                                {% else %}
+                                <h6 class="">etudiant</h6>
+                                {% endif %}
+                            </div>
+                        </div> <br>
+                        <p>
+                            {{post.commentaire}}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if not user.profile.postBlock  %}
+                <form action="#comment" method="post" class="w-100 mt-3">
+                    {% csrf_token %}
+                    <textarea id="comment" class="w-100"  id="" cols="30" value="" name="commentaire" rows="6" required></textarea> <br>
+                    <input class="envoyer px-3 py-1" type="submit" value="Envoyer">
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock base %}

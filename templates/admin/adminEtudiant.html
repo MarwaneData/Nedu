@@ -1,0 +1,87 @@
+{% extends 'admin/adminBase.html' %}
+{% block base%}
+{% load static %}
+<div class="container  mt-5 pt-2">
+    <div class="nombre-ajouter d-flex justify-content-between">
+        <div class="nombreCours d-flex p-2 align-items-center ">
+            <img src="{% static 'images/usersIcon.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{students|length}}</p>
+                <p class="light">Etudiants</p>
+            </div>
+        </div>
+    </div>
+    <div class="search mt-5 pt-3">
+        <form action="#table-etudiant" method="GET">
+            <div class="d-flex">
+                <div class="">
+                    <input class="w-100 px-4 py-2 " name="search_name" type="text" placeholder="Recherche par nom">
+                </div>
+                <div class="">
+                    <input class="py-2" type="submit" value=""></input>
+                    <img src=" {% static 'images/Search.png' %}  " width="20px" alt="" srcset="">
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="tout-cours w-100 mt-4">
+        <table id="table-etudiant" class="table-cours w-100">
+            <tr class="head ">
+                <td class="p-4">Noms </td>
+                <td>Age</td>
+                <td>block</td>
+                <td></td>
+                <td></td>
+
+
+            </tr>
+            {% for p in profiles %}
+            {% if p.user.is_staff %}
+            <tr class=" p-4" style="border-bottom:1px solid black;">
+                <td class="d-flex align-items-center p-4">
+                    <div class="img"
+                        style="width:45px; height:45px; border-radius:50%; background: url({{p.picture.url}}); background-position: center; background-size: cover;">
+                    </div>
+                    <p style="color:rgba(0, 0, 255, 0.801);" class="fw-bold mx-2 ">{{p.user.username}} (admin)</p>
+                </td>
+                <td>
+                    <p class="fw-bold">{{p.age}}</p>
+                </td>
+                <td>
+                    True
+                </td>
+                <td style="width: 100px;"></td>
+                <td><button type="submit" class="bg-transparent fw-bold"
+                        style="border:none; color: red;">supprimer</button></td>
+            </tr>
+            {% else %}
+            <tr class=" p-4" style="border-bottom:1px solid black;">
+                <td class="d-flex align-items-center p-4">
+                    <div class="img"
+                        style="width:45px; height:45px; border-radius:50%; background: url({{p.picture.url}});background-position: center; background-size: cover;">
+                    </div>
+                    <p class="fw-bold mx-2 ">{{p.prenom}} {{p.nom}}</p>
+                </td>
+                <td>
+                    <p class="fw-bold">{{p.age}}</p>
+                </td>
+                <td>
+                <form  method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{p.user.id}}" name="hiddenId" >
+                    <button name="blockPost" type="submit" style="border: none;">
+                        <p class="fw-bold">{{p.postBlock}}</p>
+                    </button>
+                </form>
+                </td>
+                <td style="width: 100px;"></td>
+                <td><a href="{% url 'userSupprimer' p.user.id %}"><button type="submit" class="bg-transparent fw-bold"
+                            style="border:none; color: red;">supprimer</button></a></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock base%}

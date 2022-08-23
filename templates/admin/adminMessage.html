@@ -1,0 +1,114 @@
+{% extends 'admin/adminBase.html' %}
+{% block base%}
+{% load static %}
+<style>
+    .newmessages {
+     width: 100%;
+    }
+    .message {
+    background: #00515b;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    }
+    .message h3{
+        font-size: 20px;
+        color: #dddddd
+    }
+    .message p{
+        font-size: 16px;
+        color: #ffffff
+    }
+    .messages {
+    width: 95%;
+    height: 300px;
+    background: #0b1b22;
+    overflow-y: scroll;
+    padding: 20px;
+   }
+   .messages::-webkit-scrollbar {
+    width: 7px;
+   }
+   .messages::-webkit-scrollbar-track {
+    --webkit-box-shadow: inset 0 0 6px rgb(11 27 34);
+   }
+
+   .messages::-webkit-scrollbar-thumb {
+    background-color: rgb(25, 47, 56);
+   }
+   .right .confirmer .confirmerBtn{
+     color: rgb(255, 255, 255) !important;
+     background: transparent;
+     border: 0;
+     width: 100%;
+   }
+   form .deleteMsg{
+      background-color: rgb(25, 47, 56);
+      border:0;
+      color: #ffffff !important;
+      padding: 10px 20px;
+   }
+   
+
+
+
+
+
+</style>
+<div class="container d-flex justify-content-between align-items-center mt-5 pt-2 mb-5">
+    <div class="newmessages">
+        <h1>Les nouveaux</h1>
+        <div class="messages">
+            {% for message in  Newmsgs %}
+              <div class="message">
+                <h3>{{message.msg_sender}}</h3>
+                <p>{{message}}</p>
+              </div>
+            {% endfor %}
+        </div>
+
+    </div>    
+    <div class="right ">
+        <div class="students d-flex p-2 align-items-center my-3">
+            <img src=" {% static 'images/newMessages.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{Newmsgs|length}}</p>
+                <p class="light">nouveaux</p>
+            </div>
+        </div>
+        <div class="students d-flex p-2 align-items-center my-3">
+            <img src=" {% static 'images/messages.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{messages|length}}</p>
+                <p class="light">messages</p>
+            </div>
+        </div>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="confirmer p-2 text-center">
+                    <input type="submit" class="confirmerBtn" name="confirmer" class="text-center" value="Confirmer"> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container pb-5">
+    <div class="newmessages mb-1">
+        <h1>Tous les messages</h1>
+        <div class="messages">
+            {% for message in  messages %}
+              <div class="message">
+                <h3>Utilisateur: {{message.msg_sender}}</h3>
+                <p>{{message}}</p>
+              </div>
+            {% endfor %}
+        </div>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <input class="deleteMsg" name="delete" type="submit" value="Delete All messages">
+        </div>
+    </form>
+</div>
+{% endblock base%}

@@ -1,0 +1,104 @@
+{% extends 'admin/adminBase.html' %}
+{% block base%}
+{% load static %}
+<div class="container d-flex justify-content-between align-items-center mt-5 pt-2">
+    <div class="left">
+        <div class="photo-name d-flex align-items-center">
+            <div class="photo" style="width:80px; height:80px;  border-radius: 50%; 
+                            background-image: url({{admin.profile.picture.url}});
+                        ">
+            </div>
+            <div class="name  mx-4">
+                <h4 class="mb-0"> {{user.profile.nom}} {{user.profile.prenom}} </h4>
+                <p class="light">NEDUM ADMIN</p>
+            </div>
+        </div>
+        <div class="deux-button d-flex mt-3">
+
+        </div>
+        <div class="description w-75 p-3 mt-3">
+            <p>I'm the admin of Nedum website
+            </p>
+        </div>
+        <div class="mt-4">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form d-flex">
+                    <div class=" pt-4">
+                        <div class="first-name">
+                            <label for="first-name" class="fw-bold py-2">First name :</label> <br>
+                            <input type="text" name="nom" value="{{user.profile.prenom}}">
+                        </div>
+                        <div class="age mt-3">
+                            <label for="age" class="fw-bold py-2">Age :</label> <br>
+                            <input type="number" name="age" value="{{user.profile.age}}">
+                        </div>
+                    </div>
+                    <div class=" px-4 pt-4">
+                        <div class="last-name">
+                            <label for="last-name" class="fw-bold py-2">Last-name :</label> <br>
+                            <input type="text" name="prenom" value="{{user.profile.nom}}">
+                        </div>
+                        <div class="email mt-3">
+                            <label for="email" class="fw-bold py-2">Email :</label> <br>
+                            <input type="text" name="email" value="{{user.profile.email}}">
+                        </div>
+                    </div>
+                </div>
+                <input class="changer px-3 mt-3 " type="submit" name="change" value="Changer">
+            </form>
+        </div>
+    </div>
+    <div class="right ">
+        <div class="students d-flex p-2 align-items-center my-3">
+            <img src=" {% static 'images/allusers.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{students|length}}</p>
+                <p class="light">Etudiants</p>
+            </div>
+        </div>
+        <div class="students d-flex p-2 align-items-center my-3">
+            <img src=" {% static 'images/courses.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{cours|length}}</p>
+                <p class="light">cours</p>
+            </div>
+        </div>
+        <div class="students d-flex p-2 align-items-center my-3">
+            <img src="{% static 'images/domains.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{domaine|length}}</p>
+                <p class="light">Domaines</p>
+            </div>
+        </div>
+        <div class="students d-flex p-2 align-items-center my-3">
+            <img src="{% static 'images/usersIcon.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{staffs|length}}</p>
+                <p class="light">Admins</p>
+            </div>
+        </div>
+        <div class="students d-flex p-2 align-items-center my-3">
+            <img src="{% static 'images/usersIcon.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{messages|length}}</p>
+                <p class="light">Messages</p>
+            </div>
+        </div>
+        <div class="students d-flex p-2 align-items-center my-3">
+            <img src="{% static 'images/usersIcon.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{questions|length}}</p>
+                <p class="light">Questions</p>
+            </div>
+        </div>
+        <div class="students d-flex p-2 align-items-center my-3">
+            <img src="{% static 'images/usersIcon.png' %} " style="width:25px; height: 25px;">
+            <div class="px-3">
+                <p class="fw-bold">{{commentaires|length}}</p>
+                <p class="light">Commentaires</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock base%}

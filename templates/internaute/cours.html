@@ -1,0 +1,75 @@
+{% extends 'internaute/base.html' %}
+
+{% block base%}
+
+<section class="section1 bg-00262b ">
+    <div class="container  position-relative ">
+        <div class="search p-3  ">
+            <form method="GET" action="#nv_cours" class=" d-flex justify-content-center">
+                <div class="d-flex w-50 ">
+                    <div class="w-100 p-2  ">
+                        <input class="w-100 px-4 py-2 bg-transparent searchinput" name="cours_nom" type="text" placeholder="Recherche">
+                    </div>
+                    <div class="p-2">
+                        <button class="px-4 py-2 buttonInput fw-light" type="submit">Trouver !</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="nv_cours" class="Bigtitle d-flex justify-content-center pt-5 ">
+            <h2>Nouveaux cours</h2>
+        </div>
+        <div id="grid_card"  class="NvCours pt-5">
+        {% for cour in cours %}
+          {% if cour.date_creation|date:"y-m-d" > "21-12-30"   %}
+            <a href=" {% url 'contenu' cour.id %} ">
+              <div class="cours d-flex flex-column align-items-center ">
+                   {% if cour.photo_cours %}
+                    <div class="coursImg bg-details" style="background: url( {{cour.photo_cours.url}} ); background-position: center; background-size: cover; "></div>
+                   {% else %}
+                    <div class="coursImg bg-details" style="background: url(/static/images/homePng.png);"></div>
+                   {% endif %}
+                    <div class="coursTitle pt-3">
+                     <h3>{{cour.titre}}</h3>
+                    </div>
+                    <div class=" position-relative coursText px-3 fw-light">
+                    <p>{{cour.discription}}</p>
+                    <p class="dateCour">{{ cour.date_creation|date:"y-m-d"}}  </p> 
+                    </div>
+                </div>
+            </a>       
+           {% endif %}
+        {% endfor%}
+
+        </div>
+        <!-- plus populaire -->
+        <br> <br> <br> <br> <br> <br>
+        <div class="Bigtitle d-flex justify-content-center pt-5 ">
+            <h2 class="">Plus Populaire</h2>
+        </div>
+        <div id="grid_card"  class="NvCours pt-5">
+            {% for cour in cours %}
+            {% if "21-12-30" > cour.date_creation|date:"y-m-d"    %}
+              <a href=" {% url 'contenu' cour.id %} ">
+                <div class="cours d-flex flex-column align-items-center ">
+                     {% if cour.photo_cours %}
+                      <div class="coursImg bg-details" style="background: url( {{cour.photo_cours.url}} ); background-position: center; background-size: cover; "></div>
+                     {% else %}
+                      <div class="coursImg bg-details" style="background: url(/static/images/homePng.png);"></div>
+                     {% endif %}
+                      <div class="coursTitle pt-3">
+                       <h3>{{cour.titre}}</h3>
+                      </div>
+                      <div class="position-relative coursText px-3 fw-light">
+                        <p>{{cour.discription}}</p>
+                        <p class="dateCour">{{ cour.date_creation|date:"y-m-d" }}</p> 
+                      </div>
+                  </div>
+              </a>       
+             {% endif %}
+          {% endfor%}
+            </div>
+      
+    </div>
+</section>
+{% endblock base%}

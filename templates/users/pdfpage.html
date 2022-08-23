@@ -1,0 +1,18 @@
+{% extends 'users/base.html' %}
+{% load static%}
+{% block base%}
+<section class="section1  vh-100"  style="padding-bottom:200px;">
+    <div class="container h-100 ">
+        {% if cour.pdf %}
+        <object data="{{cour.pdf.url}}" height="130%" width="100%" ></object>
+        <!-- <iframe src="{{cour.pdf.url}}" frameborder="0"></iframe> -->
+
+        {% else %}
+        <object class="fw-bold" height="130%" width="100%" style="color: red;">ce cour n'a pas une !!</object>
+        {% endif %}
+        <div class="button d-flex justify-content-end py-2">
+        <a href=" {% url 'welcome' cour.id %} "><input class="px-3 py-1 m-2" type="button" value="quiz"></a>
+        </div>
+    </div>
+</section>
+{% endblock base %}

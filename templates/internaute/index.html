@@ -1,0 +1,223 @@
+{% extends 'internaute/base.html' %}
+{% load static%}
+{% block base%}
+<section class="sectionHome position-relative vh-100">
+    <div class="container ">
+        <img src="{% static 'images/homePng.png'%}" class="homePng position-absolute rounded mx-auto d-block">
+        <div class="row gx-5 align-items-center justify-content-center translateY">
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="my-5 text-center text-xl-start">
+                    <h1 class="display-4 fw-bolder ">Nous sommes experts en formation</h1>
+                    <p class="lead fw-normal text-white-50 ">Nous aidons nos etudiants a developper leur
+                        carriere et leurs competences.</p>
+                </div>
+            </div>
+        </div>
+        <div class="carres position-absolute d-flex">
+            <div class="carre text-center">
+                <div class="carreInterne d-flex flex-column justify-content-center align-items-center">
+                    <img src="{% static 'images/User.png'%}">
+                    <h6>Devenir Etudiant</h6>
+                    <p class="opacity-75">Inscrivez-Vous aux meilleurs cours</p>
+                </div>
+            </div>
+            <div class="carre text-center">
+                <div class="carreInterne">
+                    <img src="{% static 'images/Qcm.png'%}">
+                    <h6>Notre Controle qualite</h6>
+                    <p class="opacity-75">Test pour chaque cours</p>
+                </div>
+            </div>
+            <div class="carre text-center">
+                <div class="carreInterne">
+                    <img src="{% static 'images/Chat.png' %}">
+                    <h6>Discuter de vos idees</h6>
+                    <p class="opacity-75">Reunion en ligne et forum</p>
+                </div>
+            </div>
+        </div>
+        <div class="down opacity-75 d-flex align-items-center">
+            <img src="{% static 'images/down.png' %}">
+            <p class="fw-light">Regarde en bas</p>
+        </div>
+    </div>
+</section>
+<section id="home_section2" class="section2 p-5 bg-00262b">
+    <div class="container">
+        <div class="Bigtitle d-flex justify-content-center pt-5 ">
+            <h2>Nos formations a la une :</h2>
+        </div>
+        <div class="search pt-3">
+            <form method="GET" action="#home_section2" class=" d-flex flex-column align-items-center">
+                <div class="d-flex  inputseaching">
+                    <div class="w-100 p-2  ">
+                        <input class="w-100 px-4 py-2 bg-transparent searchinput" name="search_name" type="text"
+                            id="cours_name" placeholder="Recherche">
+                    </div>
+                    <div class="p-2">
+                        <button class="px-4 py-2 buttonInput fw-light" type="submit">Trouver !</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="cards px-5 pt-5 ">
+            {% for a in cours %}
+            <div class="card  courshide cours{{a.domaine.id}} align-items-center p-3 ">
+                <div class="cardTitle p-3">
+                    <h4>{{a.titre}}</h4>
+                </div>
+                <div class="cardText fw-light">
+                    <p>{{a.discription}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <ul style="max-width:400px;">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">domaines</a>
+                <ul  class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                    {% for d in domaines %}
+                    <li ><a style="color:black !important;" class="dropdown-item domaine{{d.id}}" >{{d.nom}}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="section3 p-5">
+    <div class="container">
+        <div class="Bigtitle d-flex justify-content-center  p-5">
+            <h2>Ce que nous proposons</h2>
+        </div>
+        <div class="cards2 pt-5">
+            <div class="card2 p-3 d-flex flex-column align-items-center bg-details"
+                style="background-image: url(/static/images/nouveauxCours.jpg);">
+                <div class="card2title p-4">
+                    <h4>Nouveaux cours</h4>
+                </div>
+                <div class="card2Text px-3">
+                    <p>Nous avons les derniers livres et leçons dans
+                        tous les domaines, nous recherchons toujours
+                        le meilleur dans les bibliothèques mondiales. </p>
+                </div>
+            </div>
+            <div class="card2 p-3 d-flex flex-column align-items-center bg-details"
+                style="background-image: url(/static/images/formation.jpg);">
+                <div class="card2title p-4">
+                    <h4>Formation continue</h4>
+                </div>
+                <div class="card2Text px-3">
+                    <p>les étudiants pratiquent à leur propre rythme,
+                        apprenez chaque fois que vous voyez que
+                        c'est mieux pour vous.</p>
+                </div>
+            </div>
+            <div class="card2 p-3 d-flex flex-column align-items-center bg-details"
+                style="background-image: url(/static/images/controle.jpg);">
+                <div class="card2title p-4">
+                    <h4>Notre contrôle qualité</h4>
+                </div>
+                <div class="card2Text px-3">
+                    <p>Nous évaluons votre compréhension du cours
+                        à travers des questions sur la leçon par ordre
+                        croissant de difficulté . </p>
+                </div>
+            </div>
+            <div class="card2 p-3 d-flex flex-column align-items-center bg-details"
+                style="background-image: url(/static/images/contenu.jpg);">
+                <div class="card2title p-4">
+                    <h4>Contenu fiable</h4>
+                </div>
+                <div class="card2Text px-3">
+                    <p>les contenus de Nedu proposent des cours et
+                        des exercices fiables couvrant les mathéma-
+                        tiques, les sciences et bien plus encore.
+                        Toujours gratuit pour les apprenants.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section4 position-relative bg-details p-5">
+    <div class="container">
+        <div class="Bigtitle d-flex justify-content-center  p-5 ">
+            <h2>Des extraits de notre forum</h2>
+        </div>
+        <div class="extraits d-flex align-items-center justify-content-center  ">
+            <div class="contenuLeft d-flex flex-column m-5 ">
+                <h2 class="py-4 ">Que disent nos eleves de nous</h2>
+                <a class="px-4 py-1  text-center" id="button1" href=" {% url 'signup' %} ">S'inscrire</a>
+            </div>
+            <div class="contenuRight d-flex flex-column m-3">
+                <div class="forumCards owl-carousel d-flex overflow-hidden">
+                    <div class="forumCard ">
+                        <div class="img" style="background-image: url(/static/images/les\ images/card1.jpg);"></div>
+                        <div class="cementaire my-2 fw-light p-3">
+                            <p>
+                                vous êtes au meilleur endroit pour apprendre,
+                                j'ai appris la programmation facilement avec
+                                nedu, est vraiment l'éducation la plus proche
+                                pour moi.
+                            </p>
+                            <p>Mezzane Marwane</p>
+                        </div>
+                    </div>
+                    <div class="forumCard ">
+                        <div class="img" style="background-image: url(/static/images/les\ images/card3.jpg);"></div>
+                        <div class="cementaire my-2 fw-light p-3">
+                            <p>
+                                nedu est l'une des meilleures plateformes pour apprendre, vous pouvez parler avec votre
+                                ami à tout moment, c'est tellement bon
+                            </p>
+                            <p>Amine janani</p>
+                        </div>
+                    </div>
+                    <div class="forumCard ">
+                        <div class="img" style="background-image: url(/static/images/les\ images/card2.jpg);"></div>
+                        <div class="cementaire my-2 fw-light p-3">
+                            <p>
+                                I have a nice experience with this website, it helps me when I'm learning basics the
+                                pronunciation of english
+                            </p>
+                            <p>ayman </p>
+                        </div>
+                    </div>
+                    <div class="forumCard ">
+                        <div class="img" style="background-image: url(/static/images/les\ images/card3.jpg);"></div>
+                        <div class="cementaire my-2 fw-light p-3">
+                            <p>ards are built with as little markup and styles as possible,
+                                but still manage to deliver a to </p>
+                            <p>nom etudiant 4</p>
+                        </div>
+                    </div>
+                    <div class="forumCard ">
+                        <div class="img" style="background-image: url(/static/images/les\ images/card1.jpg);"></div>
+                        <div class="cementaire my-2 fw-light p-3">
+                            <p>ards are built with as little markup and styles as possible,
+                                but still manage to deliver a to </p>
+                            <p>nom etudiant 5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex d-flex align-items-center">
+                    <div class="buttonRightLeft my-2 mx-3">
+                        <button class="pre" id="preBtn"><img src="{% static 'images/les images/left.png' %}"
+                                alt=""></button>
+                        <button class="next" id="nextBtn"><img src="{% static 'images/les images/Right.png' %}"
+                                alt=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% block scripts %}
+<script src="{% static 'js/accueil.js' %}"></script>
+{% endblock scripts %}
+
+{% endblock base%}

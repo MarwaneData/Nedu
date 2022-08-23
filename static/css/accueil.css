@@ -1,0 +1,317 @@
+
+.sectionHome{
+    background: linear-gradient(359.39deg, #3E9BA7 -103.33%, #256B74 -59.23%, #00262B 76.19%) ;
+    z-index: -99;
+}
+.sectionHome .homePng{
+width: 800px;
+height: 400px;
+margin-top: 170px;
+margin-left: 200px !important;
+}
+.sectionHome .carres{
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+.carre {
+    width: 200px;
+}
+.carreInterne{
+    padding: 10px;
+}
+.carre img{
+    width: 40%;
+    margin-bottom: 8px;
+}
+.carre p{
+    font-size: 10px;
+    text-align: center;
+}
+.carre:nth-child(1){
+  background:   rgb(0, 70, 81);
+}
+.carre:nth-child(2){
+  background:   rgb(0, 55, 63);
+}
+.carre:nth-child(3){
+  background:   rgb(0, 44, 50);
+}
+.sectionHome .down{
+    transform: translateY(1650%);
+}
+.down img{
+    width: 25px;
+    height: 25px;
+}
+.down p{
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+/* ======== section 2 ============= */
+#home_section2{
+   border-bottom:1px solid #5f7f82;
+}
+.section2 .container , .section3 .container, .section4 .container{
+    transform: scale(.9);
+}
+
+.card:nth-child(2n+1){
+    background: #012d33;
+}
+.card:nth-child(2n){
+    background: #008193;
+    color: #012d33;
+}
+.section2 .cards{
+    display: grid;
+    justify-content: center !important;
+    gap: 1px ;
+    grid-template-columns: 22% 22% 22% 22%;
+}
+.section2 .card{
+    width: 100%;
+}
+.barSelect .form-select{
+    width: 300px;
+    color:  #d1e9ec;
+    margin-left: 22%;
+    letter-spacing: 1.2px;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(0, 70, 81);
+}
+
+/* ===== section 3 ======= */
+.section3{
+    background: #00262b;
+}
+.section3::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #d1e9ec74;
+    top: 0;
+    left: 0;
+}
+.section3 .cards2{
+    display: grid ;
+    gap:30px 50px;
+    justify-content: center;
+    grid-template-columns: 45% 45%;
+    transition: all 0.3s;
+}
+.section3 .card2{
+    background-image: linear-gradient( to right bottom, #022024c7, #000000ed ), url(/static/images/about.jpg);
+    background-attachment: local;
+}
+
+/* === section4 ===== */
+.section4{
+    background-image: linear-gradient( to right bottom, #00262baa, #000000ed ), url(/static/images/about.jpg);
+}
+.extraits{
+    background: #013840;
+    padding: 110px 20px !important;
+    border-radius: 1.5rem;
+    overflow: hidden !important;
+}
+.contenuLeft{
+    max-width: 200px;
+}
+.contenuLeft a{
+    max-width: min-content;
+}
+.contenuLeft h2{
+    line-height: 2;
+}
+.contenuRight{
+    cursor: pointer;
+    max-width: 875px;
+}
+.section4 .forumCards{
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+.section4 .forumCard{
+    margin: 5px;
+    max-width: 281px;
+}
+.forumCard .img{
+    border-radius: 1rem 1rem 0rem 0rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 281px;
+    height: 120px;
+}
+
+.forumCard .cementaire{
+    border-radius:0rem 0rem 1em 1rem ;
+    background: #00262b;
+    height: 215px;
+}
+.buttonRightLeft button{
+    width: 26px;
+    height: 26px;
+    border: none;
+}
+.buttonRightLeft button:nth-child(1){
+    background: #01242b;
+}
+.buttonRightLeft button:nth-child(2){
+    background: #0b6c80;
+}
+.points div{
+    margin: 3px;
+    width: 13px;
+    height: 13px;
+    background: white;
+    border-radius: 50%;
+    transform: translateX(360px);
+}
+
+/* media query */
+@media only screen and (max-width: 1250px ){
+    .section4 .extraits{
+        justify-content: flex-start !important;
+        padding: 45px 10px !important;
+    }
+    .section4 .contenuRight{
+        max-width: 669px;
+    }
+    .section4 .forumCard .img{
+        width: 214px !important;
+    }
+    .section4 .cementaire{
+        padding: 4px 1rem !important;
+    }
+}
+@media only screen and (max-width: 1200px ){
+    .sectionHome .homePng{
+        margin-left: 120px !important;
+        transform: scale(.9);
+    }
+    .sectionHome .carres{
+        transform: scale(.9);
+        right: -2.5%;
+        bottom:-2.5%;
+    }
+    
+
+}
+
+
+@media only screen and (max-width: 1050px ){
+    .sectionHome .my-5.text-center.text-xl-start{
+        transform: scale(.9);
+    }
+    .sectionHome .homePng{
+    width: 600px;
+    height: 350px;
+    margin-left: 120px !important;
+    }
+    .sectionHome .carres{
+        bottom: -2%;
+        right: -2.8%;
+    }
+    .carre img{
+        width: 30%;
+    }
+    .down {
+        margin-top: 25px;
+    }
+    .down img{
+        width: 20px;
+        height: 20px;
+    }
+    /* ======== section 2 ============= */
+    .section2 .container , .section3 .container, .section4 .container{
+        transform: scale(.8);
+    }
+    .section2 .select.form-select.bg-transparent{
+        margin-left: 10px;
+    }
+    /* === section4 ===== */
+    .section4{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .sectionHome .my-5.text-center.text-xl-start {
+        transform: scale(.9);
+    }
+
+    .my-5.text-center.text-xl-start {
+        text-align: start !important;
+    }
+
+    .sectionHome .homePng {
+        display: none !important;
+    }
+
+    .sectionHome .col-lg-8.col-xl-7 {
+        transform: translateY(10%);
+        padding-left: 0;
+    }
+
+    .carre img {
+        width: 26%;
+    }
+
+    .down.opacity-75.d-flex {
+        display: none !important;
+    }
+
+    /* ======== section 2 ============= */
+    .section2 .container{
+        transform: scale(1);
+    }
+    .section2 .cards{
+        grid-template-columns: 30% 30% 30%;
+    }
+    .barSelect .form-select{
+        margin-left: 10% !important;
+    }
+    /* === section 3 === */
+    .section3 .cards2{
+        grid-template-columns: 40% 40%;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* section 2 */
+    .section2 .cards{
+        grid-template-columns: 50% 50% ;
+    }
+    .barSelect .form-select{
+        margin-left: 0% !important;
+    }
+    /* section 3 */
+    .section3 .cards2{
+        grid-template-columns: 100%;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 580px) {
+    /* section 2 */
+    .section2 .cards{
+        grid-template-columns: 100% ;
+    }
+    .barSelect .form-select{
+        margin-left: 0% !important;
+        width: 90%;
+    }
+    .inputseaching {
+        width: 179px;
+    }
+    
+}
+

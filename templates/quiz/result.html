@@ -1,0 +1,16 @@
+{% extends 'quiz/base.html' %}
+{% block base%}
+{% load static %}
+
+
+    <div class="container position-relative vh-100 ">
+        <div class="content h-100 d-flex justify-content-center align-items-center">
+
+            <h2 style="--clr:#11998e" class="" id="result"> 
+               Votre score est <span>{{score}}</span> sur {{questions|length}}
+            </h2>
+               
+           </div>
+    </div>
+
+{% endblock %}
