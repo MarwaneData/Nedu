@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from .models import *
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_bytes
